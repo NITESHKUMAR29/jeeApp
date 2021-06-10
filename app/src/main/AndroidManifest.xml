@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jee">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Jee">
+        <activity android:name=".OmrOption"></activity>
+        <activity android:name=".Omr" />
+        <activity android:name=".WrongAnswer" />
+        <activity android:name=".RightAnswer" />
+        <activity android:name=".UploadQuestions" />
+        <activity android:name=".Dpp" />
+        <activity android:name=".sample_question" />
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PdfViewer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".neet.NeetMaterial"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wbjee.WbjeeMaterial"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".jeeAdvance.AdvanceMaterial"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".jeeMains.ChoosePdf"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UploadPdf"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".jeeMains.MainsPdf"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Profile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Content"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

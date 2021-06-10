@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "545522898133",
+    "project_id": "jee-prepration",
+    "storage_bucket": "jee-prepration.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545522898133:android:781a105474caf35462be5c",
+        "android_client_info": {
+          "package_name": "com.example.jee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545522898133-ln7c5kaun7m35frnblh4fhnr4vfm60eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8BXZfiqXf4YByiufwpvMMj7HtH9He2Fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545522898133-ln7c5kaun7m35frnblh4fhnr4vfm60eq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
