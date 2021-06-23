@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -27,6 +29,9 @@ import kotlinx.android.synthetic.main.activity_content.*
 import java.util.*
 
 class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    lateinit var openAnimation:Animation
+    lateinit var closeAnimation: Animation
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     lateinit var auth: FirebaseAuth
     lateinit var fStore: FirebaseFirestore
@@ -38,6 +43,8 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         setTheme(R.style.Theme_Jee)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content)
+
+
 
 
 
@@ -82,15 +89,15 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         }
 
         mnotes.setOnClickListener {
-            Toast.makeText(this,"coming soon",Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this,UploadPdf::class.java)
-//            startActivity(intent)
+            //Toast.makeText(this,"coming soon",Toast.LENGTH_SHORT).show()
+           val intent = Intent(this,Notes::class.java)
+            startActivity(intent)
         }
 
         navigation_view.setNavigationItemSelectedListener(this)
         auth = FirebaseAuth.getInstance()
         fStore = FirebaseFirestore.getInstance()
-        userId = auth.currentUser.uid
+        userId = auth.currentUser!!.uid
         val view = LayoutInflater.from(this).inflate(R.layout.drawer_header, null)
         navigation_view.addHeaderView(view)
         textView = navigation_view.getHeaderView(0).findViewById(R.id.textView3)
@@ -134,15 +141,17 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun closeFAB() {
-        mOmr.visibility = View.GONE
-        mnotes.visibility = View.GONE
+       closeAnimation=AnimationUtils.loadAnimation(this,R.anim.close)
+        mOmr.animation = closeAnimation
+        mnotes.animation = closeAnimation
         omrText.visibility = View.GONE
         notesTaxt.visibility = View.GONE
     }
 
     private fun openFAB() {
-        mOmr.visibility = View.VISIBLE
-        mnotes.visibility = View.VISIBLE
+        openAnimation=AnimationUtils.loadAnimation(this,R.anim.open)
+        mOmr.animation = openAnimation
+        mnotes.animation = openAnimation
         omrText.visibility = View.VISIBLE
         notesTaxt.visibility = View.VISIBLE
 
@@ -169,7 +178,9 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
         when (it.itemId) {
             R.id.nav_follow -> {
-                Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                val intent=Intent(this,FollowUs::class.java)
+                startActivity(intent)
                 true
             }
             R.id.nav_rate_us -> {

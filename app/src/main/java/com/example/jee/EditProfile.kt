@@ -121,15 +121,32 @@ class EditProfile : AppCompatActivity() {
                     fStore.collection("users").document(userId)
                 val users = HashMap<String, Any>()
                 users["imageUri"] = it.toString()
-                documentReference.update(users).addOnSuccessListener(OnSuccessListener {
-                    progressDialog.dismiss()
-                    Toast.makeText(this, "profile upload succesfully", Toast.LENGTH_LONG).show()
-                })
-                    .addOnFailureListener(OnFailureListener {
-                        Toast.makeText(this, "profile is not uploaded", Toast.LENGTH_LONG).show()
+                documentReference.update(users).addOnCompleteListener { task ->
+
+                    if (task.isSuccessful){
                         progressDialog.dismiss()
-                    })
+                   Toast.makeText(this, "profile upload successfully", Toast.LENGTH_LONG).show()
+                    }
+                    else{
+                        progressDialog.dismiss()
+                       // Toast.makeText(this, "profile is not uploaded", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,task.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
+
+                    }
+                }
+
+
+
+//                documentReference.update(users).addOnSuccessListener(OnSuccessListener {
+//                    progressDialog.dismiss()
+//                    Toast.makeText(this, "profile upload succesfully", Toast.LENGTH_LONG).show()
+//                })
+//                    .addOnFailureListener(OnFailureListener {
+//                        Toast.makeText(this, "profile is not uploaded", Toast.LENGTH_LONG).show()
+//                        progressDialog.dismiss()
+//                    })
             }
+               
         }
             .addOnProgressListener { it->
                 val progress=100*it.bytesTransferred/it.totalByteCount

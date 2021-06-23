@@ -41,8 +41,6 @@ class UploadPdf : AppCompatActivity() {
         setContentView(R.layout.activity_upload_pdf)
 
         storageReference = FirebaseStorage.getInstance().reference
-
-
         databaseReference = FirebaseDatabase.getInstance().getReference("previousYear")
         uploadPdf.isEnabled = false
         auth = FirebaseAuth.getInstance()

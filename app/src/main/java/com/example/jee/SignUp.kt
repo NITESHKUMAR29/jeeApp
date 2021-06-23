@@ -88,7 +88,7 @@ class SignUp : AppCompatActivity() {
                             if (it.isSuccessful) {
                                 progresbar.visibility=View.GONE
                                 Toast.makeText(this, "sucessfully sign up", Toast.LENGTH_LONG).show()
-                                userId = firebaseAuth.currentUser.uid
+                                userId = firebaseAuth.currentUser!!.uid
                                 val documentReference: DocumentReference = firebaseFirestore.collection("users").document(userId)
                                 val user = HashMap<String, Any>()
                                 user["useId"] = userId

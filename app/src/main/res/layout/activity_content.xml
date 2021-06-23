@@ -312,6 +312,7 @@
             android:padding="5dp"
             android:text="NOTES"
             android:textSize="16sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/mnotes"
             app:layout_constraintEnd_toStartOf="@+id/mnotes"
             app:layout_constraintTop_toTopOf="@+id/mnotes" />
@@ -326,6 +327,7 @@
             android:padding="5dp"
             android:text="OMR"
             android:textSize="16sp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/mOmr"
             app:layout_constraintEnd_toStartOf="@+id/mOmr"
             app:layout_constraintTop_toTopOf="@+id/mOmr" />
@@ -338,6 +340,7 @@
             android:layout_marginRight="32dp"
             android:layout_marginBottom="32dp"
             android:clickable="true"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/mOmr"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_baseline_note_add_24"
@@ -353,6 +356,7 @@
             android:layout_marginBottom="64dp"
             android:clickable="true"
             android:contentDescription="TODO"
+            android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/madd"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_baseline_margin_24"

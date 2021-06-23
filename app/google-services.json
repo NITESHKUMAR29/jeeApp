@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "545522898133",
-    "project_id": "jee-prepration",
-    "storage_bucket": "jee-prepration.appspot.com"
+    "project_number": "158198734270",
+    "project_id": "jeeprepration-c6720",
+    "storage_bucket": "jeeprepration-c6720.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:545522898133:android:781a105474caf35462be5c",
+        "mobilesdk_app_id": "1:158198734270:android:db80e306c5339590906def",
         "android_client_info": {
           "package_name": "com.example.jee"
         }
       },
       "oauth_client": [
         {
-          "client_id": "545522898133-ln7c5kaun7m35frnblh4fhnr4vfm60eq.apps.googleusercontent.com",
+          "client_id": "158198734270-lkf7d4h9ml0eb4e1di6mvnhc58n6co0h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC8BXZfiqXf4YByiufwpvMMj7HtH9He2Fg"
+          "current_key": "AIzaSyA6CKNKyRRcYScF1BOA3L--xhOu5xVsNsY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "545522898133-ln7c5kaun7m35frnblh4fhnr4vfm60eq.apps.googleusercontent.com",
+              "client_id": "158198734270-lkf7d4h9ml0eb4e1di6mvnhc58n6co0h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

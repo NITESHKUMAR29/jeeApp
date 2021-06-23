@@ -21,7 +21,7 @@ class Profile : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
         auth= FirebaseAuth.getInstance()
         fStore= FirebaseFirestore.getInstance()
-        userId = auth.currentUser.uid
+        userId = auth.currentUser!!.uid
         edit_profile.setOnClickListener {
             //Toast.makeText(this,"edit profile clicked",Toast.LENGTH_SHORT).show()
             val intent=Intent(this,EditProfile::class.java)

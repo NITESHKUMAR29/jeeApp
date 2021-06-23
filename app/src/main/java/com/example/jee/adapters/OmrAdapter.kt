@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jee.R
 
@@ -44,34 +42,31 @@ class OmrAdapter(private  val list: ArrayList<String> ,val context:Context,
 
             }
 
-            omr1.setOnClickListener {
-                onItemClickListener.onOmr1Click(adapterPosition)
-                dSelect()
-                omr1.setBackgroundResource(R.drawable.customomrbackground)
-            }
 
-            omr2.setOnClickListener {
-                onItemClickListener.onOmr2Click(adapterPosition)
-                dSelect()
-                omr2.setBackgroundResource(R.drawable.customomrbackground)
-            }
+                    omr1.setOnClickListener {
+                        onItemClickListener.onOmr1Click(adapterPosition)
+                        dSelect()
+                        omr1.setBackgroundResource(R.drawable.customomrbackground)
+                    }
 
-            omr3.setOnClickListener {
-                onItemClickListener.onOmr3Click(adapterPosition)
-                dSelect()
-                omr3.setBackgroundResource(R.drawable.customomrbackground)
-            }
+                    omr2.setOnClickListener {
+                        onItemClickListener.onOmr2Click(adapterPosition)
+                        dSelect()
+                        omr2.setBackgroundResource(R.drawable.customomrbackground)
+                    }
 
-            omr4.setOnClickListener {
-                onItemClickListener.onOmr4Click(adapterPosition)
-                dSelect()
-                omr4.setBackgroundResource(R.drawable.customomrbackground)
-            }
+                    omr3.setOnClickListener {
+                        onItemClickListener.onOmr3Click(adapterPosition)
+                        dSelect()
+                        omr3.setBackgroundResource(R.drawable.customomrbackground)
+                    }
 
+                    omr4.setOnClickListener {
+                        onItemClickListener.onOmr4Click(adapterPosition)
+                        dSelect()
+                        omr4.setBackgroundResource(R.drawable.customomrbackground)
+                    }
         }
-
-
-
 
         private fun dSelect() {
             omr1.setBackgroundColor(Color.WHITE)
@@ -88,7 +83,9 @@ class OmrAdapter(private  val list: ArrayList<String> ,val context:Context,
       val layoutInflater=LayoutInflater.from(parent.context)
         val view=layoutInflater.inflate(R.layout.omr_sample,parent,false)
         return Omr(view,listener)
+
     }
+
     override fun getItemCount(): Int =list.size
     override fun onBindViewHolder(holder: Omr, position: Int) {
         val currentItem=list[position]
@@ -98,11 +95,18 @@ class OmrAdapter(private  val list: ArrayList<String> ,val context:Context,
         interface OnItemClickListener{
             fun onRightClick(position: Int)
             fun onWrongClick(position: Int)
-
             fun onOmr1Click(position: Int)
             fun onOmr2Click(position: Int)
             fun onOmr3Click(position: Int)
             fun onOmr4Click(position: Int)
         }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
 }

@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        forgotPassword.setOnClickListener{
+            val intent =Intent(this,ForgotPassword::class.java)
+            startActivity(intent)
+        }
 
 
 
@@ -92,7 +96,8 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                             } else {
                                 signProgres.visibility= View.GONE
-                                Toast.makeText(this, "Something went wrong or check your password", Toast.LENGTH_LONG).show()
+                               // Toast.makeText(this, "Something went wrong or check your password", Toast.LENGTH_LONG).show()
+                                Toast.makeText(this,it2.exception!!.message.toString(),Toast.LENGTH_SHORT).show()
                             }
                         }
             }
