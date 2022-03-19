@@ -20,4 +20,6 @@
 
    <color name="secondaryTextColor">#000000</color>
 
+   <color name="appWhite">#ffff</color>
+
 </resources>

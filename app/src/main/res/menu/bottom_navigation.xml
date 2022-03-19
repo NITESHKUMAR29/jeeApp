@@ -10,6 +10,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_assignment_24"
         android:title="@string/assignment"/>
+
+    <item
+        android:id="@+id/placeholder"
+        android:title="" />
     <item
         android:id="@+id/notes"
         android:enabled="true"

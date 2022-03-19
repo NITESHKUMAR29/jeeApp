@@ -1,60 +1,83 @@
 package com.example.jee.fragments
 
+import android.app.Application
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.jee.InsertNotes
 import com.example.jee.R
+import com.example.jee.adapters.NotesAdapter
+import com.example.jee.databinding.FragmentBlankBinding
+import com.example.jee.databinding.FragmentNotesBinding
+import com.example.jee.entities.NotesModel
+import com.example.jee.jeeAdvance.AdvanceMaterial
+import com.example.jee.jeeMains.ChoosePdf
+import com.example.jee.viewModels.NotesViewModel
+import com.example.jee.wbjee.WbjeeMaterial
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BlankFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BlankFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    lateinit var viewModel: NotesViewModel
+    lateinit var display:ArrayList<NotesViewModel>
+    lateinit var notesAdapter: Adapter
+    lateinit var list: ArrayList<NotesModel>
+
+    private lateinit var binding: FragmentBlankBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false)
+    ): View {
+
+
+
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_blank, container, false)
+
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BlankFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BlankFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+       with(binding){
+           neet.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming soon",Toast.LENGTH_SHORT).show()
+//            val intent=Intent(this, NeetMaterial::class.java)
+//            startActivity(intent)
+        }
+        wbJee.setOnClickListener {
+            val intent=Intent(requireContext(), WbjeeMaterial::class.java)
+            startActivity(intent)
+        }
+
+        jeeAdvance.setOnClickListener {
+            val intent=Intent(requireContext(), AdvanceMaterial::class.java)
+            startActivity(intent)
+        }
+
+        jeeMains.setOnClickListener {
+            val intent=Intent(requireContext(), ChoosePdf::class.java)
+            startActivity(intent)
+        }
+       }
+
     }
+
+
+
+
+
 }

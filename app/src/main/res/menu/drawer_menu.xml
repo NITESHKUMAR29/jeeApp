@@ -12,6 +12,10 @@
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_baseline_person_24"
         />
+        <item android:title="OMR"
+            android:id="@+id/omr"
+            android:icon="@drawable/ic_baseline_margin_24"
+            />
     <item android:title="Rate Us"
         android:id="@+id/nav_rate_us"
         android:icon="@drawable/ic_baseline_star_24"

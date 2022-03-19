@@ -1,5 +1,6 @@
 package com.example.jee
 
+import android.app.StatusBarManager
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -58,29 +59,14 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         val notesFragment=NotesFragment()
         val chatFragment=ChatFragment()
         setCurrentFragment(homeFragment)
+        bottomNavigationView.background = null
+        bottomNavigationView.menu.getItem(2).isEnabled = false
+
+
 
 
         var isOpen = false
         closeFAB()
-//        neet.setOnClickListener {
-//            Toast.makeText(this,"Coming soon",Toast.LENGTH_SHORT).show()
-////            val intent=Intent(this, NeetMaterial::class.java)
-////            startActivity(intent)
-//        }
-//        wbJee.setOnClickListener {
-//            val intent=Intent(this, WbjeeMaterial::class.java)
-//            startActivity(intent)
-//        }
-//
-//        jeeAdvance.setOnClickListener {
-//            val intent=Intent(this, AdvanceMaterial::class.java)
-//            startActivity(intent)
-//        }
-//
-//        jeeMains.setOnClickListener {
-//            val intent=Intent(this, ChoosePdf::class.java)
-//            startActivity(intent)
-//        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
@@ -200,6 +186,12 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onNavigationItemSelected(it: MenuItem): Boolean {
 
         when (it.itemId) {
+            R.id.omr -> {
+                // Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
+                val intent=Intent(this,OmrOption::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.nav_follow -> {
                // Toast.makeText(this, "coming soon", Toast.LENGTH_SHORT).show()
                 val intent=Intent(this,FollowUs::class.java)
