@@ -20,10 +20,10 @@ interface NotesDao {
     @Query("SELECT * FROM Notes_Database ORDER BY notesPriority DESC")
     fun  lowToHigh(): LiveData<List<NotesModel>>
     @Insert
-   suspend fun insertNotes(notes: NotesModel)
+   fun insertNotes(notes: NotesModel)
     @Query("DELETE FROM Notes_Database WHERE id=:id")
-   suspend fun deleteNotes(id:Int)
+    fun deleteNotes(id:Int)
 
     @Update
-  suspend fun updateNotes(notesUpdate: NotesModel)
+  fun updateNotes(notesUpdate: NotesModel)
 }

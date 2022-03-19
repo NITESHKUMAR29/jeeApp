@@ -27,13 +27,13 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
         lowTohigh=repository.lowToHigh
         
     }
-     fun insertNote(notes: NotesModel)=viewModelScope.launch(Dispatchers.IO){
+     fun insertNote(notes: NotesModel)=viewModelScope.launch(IO){
         repository.insertNotes(notes)
     }
-  fun deleteNote(id:Int)=viewModelScope.launch(Dispatchers.IO){
+  fun deleteNote(id:Int)=viewModelScope.launch(IO){
         repository.deleteNotes(id)
     }
-     fun updateNote(notes: NotesModel)=viewModelScope.launch(Dispatchers.IO){
+     fun updateNote(notes: NotesModel)=viewModelScope.launch(IO){
         repository.updateNotes(notes)
     }
 

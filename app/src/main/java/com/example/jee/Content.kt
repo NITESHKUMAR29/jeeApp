@@ -15,7 +15,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.jee.fragments.AssignMentFragment
+import com.example.jee.fragments.BlankFragment
+import com.example.jee.fragments.ChatFragment
+import com.example.jee.fragments.NotesFragment
+
 import com.example.jee.jeeAdvance.AdvanceMaterial
 import com.example.jee.jeeMains.ChoosePdf
 import com.example.jee.neet.NeetMaterial
@@ -39,6 +45,7 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
     lateinit var textView: TextView
     lateinit var imageView: ImageView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Jee)
         super.onCreate(savedInstanceState)
@@ -46,29 +53,43 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
 
 
-
+        val homeFragment=BlankFragment()
+        val assignmentFragment=AssignMentFragment()
+        val notesFragment=NotesFragment()
+        val chatFragment=ChatFragment()
+        setCurrentFragment(homeFragment)
 
 
         var isOpen = false
         closeFAB()
-        neet.setOnClickListener {
-            Toast.makeText(this,"Coming soon",Toast.LENGTH_SHORT).show()
-//            val intent=Intent(this, NeetMaterial::class.java)
+//        neet.setOnClickListener {
+//            Toast.makeText(this,"Coming soon",Toast.LENGTH_SHORT).show()
+////            val intent=Intent(this, NeetMaterial::class.java)
+////            startActivity(intent)
+//        }
+//        wbJee.setOnClickListener {
+//            val intent=Intent(this, WbjeeMaterial::class.java)
 //            startActivity(intent)
-        }
-        wbJee.setOnClickListener {
-            val intent=Intent(this, WbjeeMaterial::class.java)
-            startActivity(intent)
-        }
+//        }
+//
+//        jeeAdvance.setOnClickListener {
+//            val intent=Intent(this, AdvanceMaterial::class.java)
+//            startActivity(intent)
+//        }
+//
+//        jeeMains.setOnClickListener {
+//            val intent=Intent(this, ChoosePdf::class.java)
+//            startActivity(intent)
+//        }
 
-        jeeAdvance.setOnClickListener {
-            val intent=Intent(this, AdvanceMaterial::class.java)
-            startActivity(intent)
-        }
-
-        jeeMains.setOnClickListener {
-            val intent=Intent(this, ChoosePdf::class.java)
-            startActivity(intent)
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home -> setCurrentFragment(homeFragment)
+                R.id.assignment -> setCurrentFragment(assignmentFragment)
+                R.id.notes -> setCurrentFragment(notesFragment)
+                R.id.chat -> setCurrentFragment(chatFragment)
+            }
+            true
         }
 
         madd.setOnClickListener {
@@ -139,6 +160,8 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         setupView()
 
     }
+
+
 
     private fun closeFAB() {
        closeAnimation=AnimationUtils.loadAnimation(this,R.anim.close)
@@ -222,5 +245,10 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         }
         return false
     }
+    private fun setCurrentFragment(fragment:Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container,fragment)
+            commit()
+        }
 
 }
