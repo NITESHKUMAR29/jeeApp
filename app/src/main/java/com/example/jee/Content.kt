@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.jee.activity.AddMaterials
 import com.example.jee.fragments.AssignMentFragment
 import com.example.jee.fragments.BlankFragment
 import com.example.jee.fragments.ChatFragment
@@ -78,14 +79,11 @@ class Content : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
             true
         }
 
+
         madd.setOnClickListener {
-            isOpen = if (!isOpen) {
-                openFAB()
-                true
-            } else {
-                closeFAB()
-                false
-            }
+
+                val intent=Intent(this,AddMaterials::class.java)
+                startActivity(intent)
         }
         mOmr.setOnClickListener{
             val intent=Intent(this,OmrOption::class.java)

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.181" />
+        <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/drawable/spinner.xml" value="0.181" />
+        <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/activity_add_materials.xml" value="0.264" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/activity_content.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/activity_mainspdf.xml" value="0.25416666666666665" />
@@ -12,6 +15,7 @@
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/fragment_chat.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/fragment_home.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/fragment_main_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/layout/fragment_notes.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/menu/bottom_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nites/AndroidStudioProjects/jeeApp/app/src/main/res/menu/drawer_menu.xml" value="0.2" />
