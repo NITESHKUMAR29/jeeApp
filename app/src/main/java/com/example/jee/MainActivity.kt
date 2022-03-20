@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.databinding.DataBindingUtil
+import com.example.jee.databinding.ActivityMainBinding
+import com.example.jee.databinding.FragmentBlankBinding
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,59 +20,70 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     lateinit var fireBaseAuth: FirebaseAuth
     lateinit var store:FirebaseFirestore
+    lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+
+
+        binding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_main
+        )
 
         val auth: FirebaseAuth = FirebaseAuth.getInstance()
-        forgotPassword.setOnClickListener{
-            val intent =Intent(this,ForgotPassword::class.java)
-            startActivity(intent)
+        with(binding){
+            forgotPassword.setOnClickListener{
+                val intent =Intent(this@MainActivity,ForgotPassword::class.java)
+                startActivity(intent)
+            }
+            if (auth.currentUser != null) {
+                val intent = Intent(this@MainActivity, Content::class.java)
+                startActivity(intent)
+                finish()
+            }
+            mSignIn.setOnClickListener {
+                val intent = Intent(this@MainActivity, SignUp::class.java)
+                startActivity(intent)
+                finish()
+            }
+            fireBaseAuth = FirebaseAuth.getInstance()
+
+            btnSignup.setOnClickListener {
+                login()
+            }
         }
 
 
 
-        if (auth.currentUser != null) {
-            val intent = Intent(this, Content::class.java)
-            startActivity(intent)
-            finish()
-        }
-        mSignIn.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
-            finish()
-        }
-        fireBaseAuth = FirebaseAuth.getInstance()
 
-        btnSignup.setOnClickListener {
-            login()
-        }
+
+
     }
 
     private fun login() {
-        signProgres.visibility= View.VISIBLE
+       binding.signProgres.visibility= View.VISIBLE
         store= FirebaseFirestore.getInstance()
         val email: String = mEmail.text.toString()
         val password: String = mPassword.text.toString().trim()
-        emailIputLayout.error = null
+        binding.emailIputLayout.error = null
         passwordInputLayout.error = null
         if (email.isBlank()) {
-            emailIputLayout.error = "email should not be blank"
-            signProgres.visibility= View.GONE
+            binding.emailIputLayout.error = "email should not be blank"
+            binding.signProgres.visibility= View.GONE
             return
         }
 
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailIputLayout.error = "invalid email"
-            signProgres.visibility= View.GONE
+            binding.emailIputLayout.error = "invalid email"
+            binding.signProgres.visibility= View.GONE
             return
         }
 
 
         if (password.length < 6 || password.isBlank()) {
-            passwordInputLayout.error = "password must be 6 character"
-            signProgres.visibility= View.GONE
+            binding.passwordInputLayout.error = "password must be 6 character"
+            binding.signProgres.visibility= View.GONE
             return
         }
         store.collection("users").whereEqualTo("userEmail",email).get().addOnSuccessListener { it ->
@@ -80,13 +94,13 @@ class MainActivity : AppCompatActivity() {
             }
             if (!exist){
                 Toast.makeText(this, "email or password is wrong", Toast.LENGTH_LONG).show()
-                signProgres.visibility= View.GONE
+                binding.signProgres.visibility= View.GONE
             }
             else{
                 fireBaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { it2 ->
                             if (it2.isSuccessful) {
-                                signProgres.visibility= View.VISIBLE
+                                binding.signProgres.visibility= View.VISIBLE
                                 Toast.makeText(this, "sign in Successfully", Toast.LENGTH_LONG).show()
 
                                 val intent = Intent(this, Content::class.java)
